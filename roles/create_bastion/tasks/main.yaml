@@ -95,7 +95,8 @@
     --extra-args "selinux=0" \
     {% endif %}
     --extra-args "{{ _vm_console }}"
-  timeout: "{{ timeout_node_creation }}"  
+  async: "{{ timeout_node_creation }}"
+  poll: 30
   register: cmd_output
 
 - name: Debug, print above command output
